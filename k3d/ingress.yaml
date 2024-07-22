@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: testapp-ingress
+  name: nextapp-ingress
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
 spec:
@@ -12,6 +12,13 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: testapp-backend-service
+                name: express-backend-service
                 port:
-                  number: 4040
+                  number: 5050
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nextapp-frontend-service
+                port:
+                  number: 3000

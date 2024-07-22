@@ -6,8 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./src:/home/node/app/src
+      - ./app:/app
       - ./nodemon.json:/home/node/app/nodemon.json
     container_name: ts-node-docker
     ports:
-      - "4040:4040"
+      - "3000:80"
